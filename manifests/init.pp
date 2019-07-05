@@ -2,6 +2,7 @@
 class sync_ts_server (
     Array[String] $packages,
     String $db_password,
+    String $db_url,
     String $db_username='sync_ts_user',
     String $db_host='localhost',
     String $db_name='sync_ts_server',
@@ -53,5 +54,13 @@ class sync_ts_server (
         section => 'database',
         setting => 'password',
         value   => $db_password,
+    }
+    
+    ini_settings {'Sync_ts_server::database_url':
+        ensure  => present,
+        path    => '/opt/sync_ts_server/config.ini',
+        section => 'terminalinfo',
+        setting => 'url',
+        value   => $db_url,
     }
 }
