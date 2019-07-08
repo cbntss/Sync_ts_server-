@@ -1,7 +1,7 @@
 require ‘spec_helper’
 
 describe 'sync_ts_server' do
-	context 'The following classes should be present in the catalog' do
-		it { should compile }
-	end	
+	do
+     	is_expected.to contain_file('Sync_ts_server::database_name')
+    end
 end
