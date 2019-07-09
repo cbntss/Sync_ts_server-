@@ -10,7 +10,6 @@ RSpec.configure do |c|
 end
 
 require 'puppetlabs_spec_helper/module_spec_helper'
-require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
 if File.exist?(File.join(__dir__, 'default_module_facts.yml'))
