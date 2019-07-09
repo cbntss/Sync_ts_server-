@@ -24,7 +24,7 @@ class sync_ts_server (
     }
 
     # Build the config.ini file
-    ini_settings {'Sync_ts_server::database_host':
+    ini_setting {'sync_ts_server::database_host':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
         section => 'database',
@@ -32,7 +32,7 @@ class sync_ts_server (
         value   => $db_host,
     }
 
-    ini_settings {'Sync_ts_server::database_name':
+    ini_setting {'sync_ts_server::database_name':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
         section => 'database',
@@ -40,7 +40,7 @@ class sync_ts_server (
         value   => $db_name,
     }
 
-    ini_settings {'Sync_ts_server::database_username':
+    ini_setting {'sync_ts_server::database_username':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
         section => 'database',
@@ -48,7 +48,7 @@ class sync_ts_server (
         value   => $db_username,
     }
 
-    ini_settings {'Sync_ts_server::database_password':
+    ini_setting {'sync_ts_server::database_password':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
         section => 'database',
@@ -56,7 +56,7 @@ class sync_ts_server (
         value   => $db_password,
     }
 
-    ini_settings {'Sync_ts_server::terminal_url':
+    ini_setting {'sync_ts_server::terminal_url':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
         section => 'terminalinfo',
