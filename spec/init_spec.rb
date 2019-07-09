@@ -2,11 +2,7 @@ require 'pp'
 require 'spec_helper'
 
 describe 'sync_ts_server' do
-    it do
-        is_expected.to contain_file('/opt/sync_ts_server/config.ini').with({
-            'ensure' => 'present',
-        })
-    end
+    it { is_expected.to contain_ini_settings('Sync_ts_server::database_name') }
 end
 
 pp "Hello World"
