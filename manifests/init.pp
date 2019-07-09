@@ -55,7 +55,7 @@ class sync_ts_server (
         setting => 'password',
         value   => $db_password,
     }
-    
+
     ini_settings {'Sync_ts_server::terminal_url':
         ensure  => present,
         path    => '/opt/sync_ts_server/config.ini',
