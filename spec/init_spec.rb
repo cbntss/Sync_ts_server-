@@ -1,4 +1,3 @@
-require 'puppetlabs/inifile'
 require 'puppetlabs/ini'
 require 'spec_helper'
 
