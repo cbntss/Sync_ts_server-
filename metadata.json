@@ -1,0 +1,12 @@
+{
+  "name": "cbntss-sync_ts_server",
+  "version": "1.0.0",
+  "author": "Canadian Bank Note Company, TSS",
+  "summary": "Install, configures, and manages the sync_ts server",
+  "license": "Apache-2.0",
+  "source": "https://github.com/cbntss/sync_ts_server.git",
+  "dependencies": [
+    { "name":"puppetlabs/inifile","version_requirement":">= 3.0.0 " },
+    { "name":"puppetlabs/stdlib","version_requirement":">= 5.2.0" }
+  ]
+}

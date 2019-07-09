@@ -1,4 +1,0 @@
-fixtures:
- forge: "https//forge.puppetlabs.com"
- symlinks:
-   rspecdemo: "#{source_dir}"
