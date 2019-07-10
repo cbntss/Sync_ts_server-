@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-
-  gem 'puppetlabs_spec_helper', '>= 2.14.0'
-  gem 'rspec-puppet-facts', '>= 1.8.0'
+  gem 'rspec', '~> 3.6'
+  gem 'puppetlabs_spec_helper'
+  gem 'rspec-puppet-facts'
   gem 'rspec-puppet-utils'
   gem 'puppet-lint-leading_zero-check'
   gem 'puppet-lint-trailing_comma-check'
@@ -13,9 +13,9 @@ source "https://rubygems.org"
   gem 'puppet-lint-absolute_classname-check'
   gem 'metadata-json-lint'
   gem 'redcarpet'
-  gem 'rubocop', '~> 0.49.1'
-  gem 'rubocop-rspec', '~> 1.15.0'
-  gem 'mocha', '~> 1.4.0'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'mocha'
   gem 'coveralls'
   gem 'simplecov-console'
   gem 'parallel_tests'
@@ -23,5 +23,5 @@ source "https://rubygems.org"
   gem 'travis'
   gem 'travis-lint'
   gem 'guard-rake'
-  gem 'overcommit', '>= 0.39.1'
+  gem 'overcommit'
 
