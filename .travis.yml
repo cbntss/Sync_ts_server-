@@ -1,6 +1,5 @@
 language: ruby
 rvm:
   - 2.6.3
-script: "rake spec"
 env:
   - PUPPET_VERSION=5.5.14
