@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rspec-puppet',  "2.6.11"
+gem 'rspec-puppet'
 gem 'puppetlabs_spec_helper'
 gem 'puppet'
-
+gem 'rake'
+gem 'rspec-system'
+gem 'rspec-system-puppet'
+gem 'rspec-system-serverspec'
+gem 'serverspec'
+gem 'puppet-lint'
