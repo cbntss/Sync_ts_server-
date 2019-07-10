@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "#{File.join(File.dirname(__FILE__),'..','spec_helper.rb')}"
 
 describe 'sync_ts_server' do
     it do
