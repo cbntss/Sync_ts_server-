@@ -17,7 +17,7 @@ class sync_ts_server (
     }
 
     # Apache config file
-    file{"${apache::port_include_dirs}/433.d/sync_ts_server.conf";
+    file{"${apache::port_include_dirs}/433.d/sync_ts_server.conf":
         ensure => file,
         source => 'puppet:///modules/sync_ts_server/sync_ts_server_httpd.conf',
         notify => Service[$apache::service],
