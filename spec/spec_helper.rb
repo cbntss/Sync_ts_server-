@@ -7,8 +7,8 @@ RSpec.configure do |c|
   c.manifest_dir    = File.join(fixture_path, 'manifests')
   c.manifest        = File.join(fixture_path, 'manifests', 'site.pp')
   c.environmentpath = File.join(Dir.pwd, 'spec')
+  c.expect_with :rspec do |config|
+    config.syntax = [:should, :expect]
+  end
 end
 
-config.expect_with :rspec do |c|
-    c.syntax = [:should, :expect]
-end
