@@ -1,6 +1,5 @@
 language: ruby
-before_install:
-  - gem install bundler:2.0.2
+
 rvm:
   - 2.1.9
 env:
