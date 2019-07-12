@@ -1,6 +1,4 @@
 language: ruby
-before_install:
-  - rvm get stable
 rvm:
   - 2.1.9
 env:
