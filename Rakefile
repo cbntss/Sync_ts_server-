@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'puppetlabs_spec_helper/rake_tasks'
 require 'rspec-puppet/rake_task'
 
 begin
@@ -6,6 +8,7 @@ begin
     PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "vendor/**/*.pp"]
     task :default => [:rspec, :lint]
   end
+  
 rescue Gem::LoadError
   task :default => :rspec
 end
