@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
   gem 'puppetlabs_spec_helper'
   gem 'puppet'
-  gem 'rake'
+  gem 'rake', '>= 0.9.0'
   gem 'rspec'
   gem 'rspec-puppet'
   gem 'mocha'
