@@ -8,7 +8,7 @@ begin
     PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "vendor/**/*.pp"]
     task :default => [:rspec, :lint]
   end
-  
+
 rescue Gem::LoadError
   task :default => :rspec
 end
