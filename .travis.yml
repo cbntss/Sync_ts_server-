@@ -2,7 +2,6 @@ language: ruby
 before_install: rm Gemfile.lock || true
 rvm:
   - 2.1.9
-script: bundle exec rake test
 env:
   - PUPPET_VERSION="~>5.5.14"
 
