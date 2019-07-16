@@ -4,8 +4,7 @@ RSpec.configure do |c|
 end
 
 require 'puppetlabs_spec_helper/module_spec_helper'
-require 'puppetlabs_spec_helper/puppet_spec_helper'
-require 'puppetlabs_spec_helper/rake_tasks'
+require 'rspec-puppet-facts'
 
 fixture_path = File.join(File.dirname(File.expand_path(__FILE__)), 'fixtures')
 
