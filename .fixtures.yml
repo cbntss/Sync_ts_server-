@@ -1,4 +1,6 @@
 fixtures:
+  symlinks:
+    "splunk": "#{source_dir}"
   forge_modules:
     stdlib:
       repo: "puppetlabs/stdlib"
