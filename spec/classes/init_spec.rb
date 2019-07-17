@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "sync_ts_server" do
-    it do
+
         context 'setting package' do
             let(:params) { {'packages' => 'pac'} }
         end
@@ -14,6 +14,7 @@ describe "sync_ts_server" do
 
 
         it { is_expected.to compile }
+    it do
         is_expected.to contain_ini_setting('sync_ts_server::database_username').with(
             ensure:  'present'
         )
