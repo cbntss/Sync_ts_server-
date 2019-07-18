@@ -1,5 +1,5 @@
 # Puppet module for managing sync_ts_server packege
-class sync-ts-server (
+class sync_ts_server (
     Array[String] $packages,
     String $db_password,
     String $terminal_url,
