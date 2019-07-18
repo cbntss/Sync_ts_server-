@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "sync_ts_server" do
 
-        let(:params) { {'packages' => 'pac', 'db_password' => '_password_', 'terminal_url' => 'url'} }
+        let(:params) { {'packages' => ['pac'], 'db_password' => '_password_', 'terminal_url' => 'url'} }
 
 
         it { is_expected.to compile }
