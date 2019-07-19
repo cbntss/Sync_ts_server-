@@ -3,9 +3,10 @@ require 'spec_helper'
 describe "apache" do
     let(:params) {
         {
-            'default_modules' => 'ssl',
+            'default_modules' => ['ssl'],
             'disclaimer' => 'This is a private system provided for authorized uses only. All other access is strictly prohibited.',
             'manage_vhosts' => 'yes',
+            'packages' => ['httpd'],
             'ssl_cipher_suites' => 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256'
         }
     }
