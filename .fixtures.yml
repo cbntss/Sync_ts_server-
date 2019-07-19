@@ -8,3 +8,9 @@ fixtures:
     inifile:
       repo: "puppetlabs/inifile"
       ref: "3.0.0"
+
+  apache:
+   repo: "http://devops.ls.cbn/git/server-management/puppet-global/modules/cbntss-apache.git"
+   ref:  "1.0.0"
+
+
