@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe "sync_ts_server" do
 
-        let(:params) { {'packages' => ['pac'], 'db_password' => '_password_', 'terminal_url' => 'url'} }
-
+     let(:params) { {'packages' => ['pac'], 'db_password' => '_password_', 'terminal_url' => 'url', 'default_modules' => 'ssl', 'disclaimer' => 'This is a private system provided for authorized uses only. All other access is strictly prohibited.', 'manage_vhosts' => 'yes', 'ssl_cipher_suites' => 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256'} }
 
         it { is_expected.to compile }
     it do
