@@ -1,16 +1,16 @@
-fixtures:
-  symlinks:
-    "splunk": "#{source_dir}"
+defaults:
+  repositories:
+    flags: "--verbose"
   forge_modules:
-    stdlib:
-      repo: "puppetlabs/stdlib"
-      ref: "6.0.0"
-    inifile:
-      repo: "puppetlabs/inifile"
-      ref: "3.0.0"
+    flags: "--verbose"
+  symlinks:
+    flags: "--verbose"
 
-  apache:
-   repo: "http://devops.ls.cbn/git/server-management/puppet-global/modules/cbntss-apache.git"
-   ref:  "1.0.0"
-
-
+fixtures:
+  forge_modules:
+    stdlib: "puppetlabs/stdlib"
+    inifile: "puppetlabs/inifile"
+  repositories:
+    apache: "http://devops.ls.cbn/git/server-management/puppet-global/modules/cbntss-apache.git"
+  symlinks:
+    "sync_ts_server": "#{source_dir}"
