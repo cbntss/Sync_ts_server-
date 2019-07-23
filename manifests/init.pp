@@ -62,4 +62,7 @@ class sync_ts_server (
         setting => 'url',
         value   => $terminal_url,
     }
+
+    contain sync_ts_server::database
+
 }
