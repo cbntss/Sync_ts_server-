@@ -7,10 +7,10 @@ class sync_ts_server::database () {
         password => postgresql_password('connector', 'CzNZnEV8G694'),
     }
 
-    postgresql::server::schema {
-        $db               => $postgresql::server::db,
-        $owner            => undef,
-        $schema           => "schema-1.0.sql",
-        $connect_settings => $postgresql::server::default_connect_settings,
+    postgresql::server::schema { 'Sync_TS_DB' :
+        $db               = $postgresql::server::db,
+        $owner            = undef,
+        $schema           = "schema-1.0.sql",
+        $connect_settings = $postgresql::server::default_connect_settings,
     }
 }
