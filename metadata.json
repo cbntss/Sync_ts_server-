@@ -8,7 +8,8 @@
   "dependencies": [
     { "name":"puppetlabs/inifile","version_requirement":">= 3.0.0 " },
     { "name":"puppetlabs/stdlib","version_requirement":">= 5.2.0" },
-    { "name":"cbntss/apache","version_requirement":">= 1.0.0" }
+    { "name":"cbntss/apache","version_requirement":">= 1.0.0" },
+    { "name":"cbntss/pki","version_requirement":">= 1.0.0" }
 
   ]
 }

@@ -12,5 +12,6 @@ fixtures:
     inifile: "puppetlabs/inifile"
   repositories:
     apache: "http://devops.ls.cbn/git/server-management/puppet-global/modules/cbntss-apache.git"
+    pki: "http://devops.ls.cbn/git/server-management/puppet-global/modules/cbntss-pki.git"
   symlinks:
     "sync_ts_server": "#{source_dir}"
