@@ -1,6 +1,6 @@
 class sync_ts_server::database () {
 
-    contain postgres::server
+    contain postgresql::server
 
     postgresql::server::db { 'sync_ts':
         user     => 'connector',
