@@ -10,9 +10,9 @@ class sync_ts_server::database (
     }
 
    postgresql::server::schema {
-        db               = $postgresql::server::db,
+        db               = postgresql::server::db,
         owner            = undef,
         schema           = "schema-1.0.sql",
-        connect_settings = $postgresql::server::default_connect_settings,
+        connect_settings = postgresql::server::default_connect_settings,
    }
 }
