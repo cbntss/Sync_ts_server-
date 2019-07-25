@@ -1,6 +1,6 @@
 class sync_ts_server::database (
     String $user_password='test',
-    String $username='test',
+    String $username='testuser',
 ) {
     contain postgresql::server
 
@@ -9,10 +9,9 @@ class sync_ts_server::database (
         password => postgresql_password('testuser', 'test'),
     }
 
-   postgresql::server::schema {
-        db               = postgresql::server::db,
-        owner            = undef,
-        schema           = "schema-1.0.sql",
-        connect_settings = postgresql::server::default_connect_settings,
+   postgresql::server::schema { 'sync_ts_schema':
+        db               => 'test_sync_ts',
+        owner            => 'testuser',
+        schema           => '/opt/sync_ts_server/schema/schema-1.0.sql',
    }
 }
