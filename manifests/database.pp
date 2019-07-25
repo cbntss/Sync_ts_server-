@@ -12,6 +12,6 @@ class sync_ts_server::database (
    postgresql::server::schema { 'sync_ts_schema':
         db               => 'test_sync_ts',
         owner            => 'testuser',
-        search_path      => "/opt/sync_ts_server/schema/schema-1.0.sql",
+        search_path      => '/opt/sync_ts_server/schema/schema-1.0.sql',
    }
 }
