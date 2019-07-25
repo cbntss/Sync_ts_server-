@@ -4,9 +4,9 @@ class sync_ts_server::database (
 ) {
     contain postgresql::server
 
-    postgresql::server::db { 'sync_ts':
-        user     => 'test',
-        password => postgresql_password('test', 'test'),
+    postgresql::server::db { 'test_sync_ts':
+        user     => 'testuser',
+        password => postgresql_password('testuser', 'test'),
     }
 
    # postgresql::server::schema { 'Sync_TS_DB' :
