@@ -1,9 +1,12 @@
-class sync_ts_server::database () {
+class sync_ts_server::database (
+    String $user_password='test',
+    String $uaername='test',
+) {
     contain postgresql::server
 
     postgresql::server::db { 'sync_ts':
-        user     => 'connector',
-        password => postgresql_password('connector', '_password_'),
+        user     => $uaername,
+        password => postgresql_password($uaername, $user_password),
     }
 
    # postgresql::server::schema { 'Sync_TS_DB' :
