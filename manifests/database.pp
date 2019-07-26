@@ -10,6 +10,6 @@ class sync_ts_server::database (
     }
 
    postgresql_psql { 'schema-1.0':
-        sql               => '/opt/sync_ts_server/schema/schema-1.0.sql',
+        command => file("${module_name}/schema-1.0.sql"),
    }
 }
