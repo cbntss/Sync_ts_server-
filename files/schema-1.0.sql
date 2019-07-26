@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS sync_ts(
  platform VARCHAR NOT NULL
 );
 
-Alter TABLE sync_ts owner to connector;
+Alter TABLE sync_ts owner to testuser;
 
 CREATE TABLE IF NOT EXISTS dbversion(
 majorversion INTEGER NOT NULL,
@@ -38,19 +38,19 @@ CREATE TABLE connection_logs (
   run_time_seconds INTEGER,
   terminal_type VARCHAR NOT NULL,
   platform VARCHAR NOT NULL,
-  datemodified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW() 
+  datemodified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
-Alter TABLE connection_logs owner to connector;
+Alter TABLE connection_logs owner to testuser;
 
 CREATE TABLE settings (
   concurrency BIGINT NOT NULL,
-  concurrency_backoff VARCHAR, 
+  concurrency_backoff VARCHAR,
   reboot VARCHAR NOT NULL DEFAULT 'true',
   splash_screen VARCHAR NOT NULL DEFAULT 'true',
   clean_cache VARCHAR NOT NULL DEFAULT 'false',
   block_run VARCHAR NOT NULL DEFAULT 'false'
 );
-Alter TABLE settings owner to connector;
+Alter TABLE settings owner to testuser;
 
 CREATE TABLE download_status (
   terminalid VARCHAR PRIMARY KEY,
@@ -58,14 +58,14 @@ CREATE TABLE download_status (
   ip VARCHAR NOT NULL ,
   status VARCHAR NOT NULL
 );
-Alter TABLE download_status owner to connector;
+Alter TABLE download_status owner to testuser;
 
 CREATE TABLE terminal_type_map (
   abrazo_type VARCHAR PRIMARY KEY,
   platform VARCHAR NOT NULL,
   terminal_type VARCHAR NOT NULL
 );
-Alter TABLE terminal_type_map owner to connector;
+Alter TABLE terminal_type_map owner to testuser;
 
 INSERT INTO terminal_type_map (abrazo_type,platform,terminal_type)
   VALUES ('Breeze Performance', 'td_breeze', 'abrazo_terminal'),

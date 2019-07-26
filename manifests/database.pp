@@ -4,9 +4,10 @@ class sync_ts_server::database (
 ) {
     contain postgresql::server
 
-    postgresql::server::db { 'test_sync_ts':
+    postgresql::server::db { 'test_two_sync_ts':
         user     => 'testuser',
         password => postgresql_password('testuser', 'test'),
+        owner    => 'testuser',
     }
 
    postgresql_psql { 'schema-1.0':
