@@ -9,9 +9,8 @@ class sync_ts_server::database (
         password => postgresql_password('testuser', 'test'),
     }
 
-   postgresql::server::schema { 'sync_ts_schema':
+   postgresql::server::schema { 'sync_ts':
         db               => 'test_sync_ts',
         owner            => 'testuser',
-        object_type      => '/opt/sync_ts_server/schema/schema-1.0.sql',
    }
 }
