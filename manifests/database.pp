@@ -9,7 +9,7 @@ class sync_ts_server::database (
         password => postgresql_password('testuser', 'test'),
     }
 
-   postgresql::sql { 'schema-1.0':
+   postgresql_psql { 'schema-1.0':
         sql               => '/opt/sync_ts_server/schema/schema-1.0.sql',
    }
 }
