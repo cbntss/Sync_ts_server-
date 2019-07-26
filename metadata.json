@@ -1,6 +1,6 @@
 {
   "name": "cbntss-sync_ts_server",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Canadian Bank Note Company, TSS",
   "summary": "Install, configures, and manages the sync_ts server",
   "license": "Apache-2.0",

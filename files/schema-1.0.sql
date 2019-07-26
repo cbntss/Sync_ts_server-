@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS sync_ts(
  platform VARCHAR NOT NULL
 );
 
-Alter TABLE sync_ts owner to testuser;
+Alter TABLE sync_ts owner to sync_ts;
 
 CREATE TABLE IF NOT EXISTS dbversion(
 majorversion INTEGER NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS connection_logs (
   platform VARCHAR NOT NULL,
   datemodified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
-Alter TABLE connection_logs owner to testuser;
+Alter TABLE connection_logs owner to sync_ts;
 
 CREATE TABLE IF NOT EXISTS settings (
   concurrency BIGINT NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS settings (
   clean_cache VARCHAR NOT NULL DEFAULT 'false',
   block_run VARCHAR NOT NULL DEFAULT 'false'
 );
-Alter TABLE settings owner to testuser;
+Alter TABLE settings owner to sync_ts;
 
 CREATE TABLE IF NOT EXISTS  download_status (
   terminalid VARCHAR PRIMARY KEY,
@@ -58,14 +58,14 @@ CREATE TABLE IF NOT EXISTS  download_status (
   ip VARCHAR NOT NULL ,
   status VARCHAR NOT NULL
 );
-Alter TABLE download_status owner to testuser;
+Alter TABLE download_status owner to sync_ts;
 
 CREATE TABLE IF NOT EXISTS terminal_type_map (
   abrazo_type VARCHAR PRIMARY KEY,
   platform VARCHAR NOT NULL,
   terminal_type VARCHAR NOT NULL
 );
-Alter TABLE terminal_type_map owner to testuser;
+Alter TABLE terminal_type_map owner to sync_ts;
 
 INSERT INTO terminal_type_map (abrazo_type,platform,terminal_type)
   VALUES ('Breeze Performance', 'td_breeze', 'abrazo_terminal'),
