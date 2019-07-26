@@ -20,7 +20,7 @@ datemodified TIMESTAMP WITH TIME ZONE NOT NULL,
 description TEXT NOT NULL
 );
 
-CREATE TABLE connection_logs (
+CREATE TABLE IF NOT EXISTS connection_logs (
   terminalid VARCHAR NOT NULL,
   env VARCHAR,
   update_stage VARCHAR,
@@ -42,7 +42,7 @@ CREATE TABLE connection_logs (
 );
 Alter TABLE connection_logs owner to testuser;
 
-CREATE TABLE settings (
+CREATE TABLE IF NOT EXISTS settings (
   concurrency BIGINT NOT NULL,
   concurrency_backoff VARCHAR,
   reboot VARCHAR NOT NULL DEFAULT 'true',
@@ -52,7 +52,7 @@ CREATE TABLE settings (
 );
 Alter TABLE settings owner to testuser;
 
-CREATE TABLE download_status (
+CREATE TABLE IF NOT EXISTS  download_status (
   terminalid VARCHAR PRIMARY KEY,
   datemodified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
   ip VARCHAR NOT NULL ,
@@ -60,7 +60,7 @@ CREATE TABLE download_status (
 );
 Alter TABLE download_status owner to testuser;
 
-CREATE TABLE terminal_type_map (
+CREATE TABLE IF NOT EXISTS terminal_type_map (
   abrazo_type VARCHAR PRIMARY KEY,
   platform VARCHAR NOT NULL,
   terminal_type VARCHAR NOT NULL
