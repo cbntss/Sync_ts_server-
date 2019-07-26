@@ -1,7 +1,7 @@
 class sync_ts_server::database (
-    String $sync_ts_dbname='test_two_sync_ts',
-    String $user_password='test',
-    String $username='testuser',
+    String $sync_ts_dbname='sync_ts',
+    String $user_password='sync_ts',
+    String $username='sync_ts',
 ) {
     contain postgresql::server
 
@@ -12,8 +12,8 @@ class sync_ts_server::database (
     }
 
    postgresql_psql { 'schema_sql':
-        db => $sync_ts_dbname,
-        unless => 'SELECT * from dbversion where majorversion = 1 and minorversion = 0',
-        command => file("${module_name}/schema-1.0.sql"),
+        db       => $sync_ts_dbname,
+        unless   => 'SELECT * from dbversion where majorversion = 1 and minorversion = 0',
+        command  => file("${module_name}/schema-1.0.sql"),
    }
 }
