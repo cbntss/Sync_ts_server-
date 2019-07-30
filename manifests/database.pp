@@ -15,5 +15,6 @@ class sync_ts_server::database (
         db       => $sync_ts_dbname,
         unless   => 'SELECT * from dbversion where majorversion = 1 and minorversion = 0',
         command  => file("${module_name}/schema-1.0.sql"),
+        require => Postgresql::Server::Db[$sync_ts_dbname],
    }
 }
