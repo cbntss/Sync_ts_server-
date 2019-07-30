@@ -13,7 +13,7 @@ class sync_ts_server::database (
 
    postgresql_psql { 'schema_sql':
         db       => $sync_ts_dbname,
-        unless   => 'SELECT * FROM information_schema.tables where table_name = 'dbversion',
+        unless   => "SELECT * FROM information_schema.tables where table_name = 'dbversion'",
         command  => file("${module_name}/schema-1.0.sql"),
         require => Postgresql::Server::Db[$sync_ts_dbname],
    }
