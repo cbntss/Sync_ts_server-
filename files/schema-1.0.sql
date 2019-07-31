@@ -80,3 +80,6 @@ INSERT INTO dbversion (majorversion,minorversion,datemodified,description)
 	VALUES (1,0,now(),'Initial database version 1.0');
 
 
+INSERT INTO settings (concurrency,concurrency_backoff,reboot,splash_screen,clean_cache,block_run)
+        VALUES (100,'auto','false','false','false','false');
+
