@@ -18,13 +18,13 @@ class sync_ts_server (
     # Apache config file
     file{"${apache::port_include_dirs}/443.d/sync_ts_server.conf":
         ensure => file,
-        source => 'puppet:///modules/sync_ts_server/sync_ts_server_httpd.conf',
+        source => 'puppet:///modules/sync_ts_server/sync_ts_server_ssl.conf',
         notify => Service[$apache::service],
     }
 
      file{"${apache::port_include_dirs}/8443.d/sync_ts_server.conf":
         ensure => file,
-        source => 'puppet:///modules/sync_ts_server/sync_ts_server_httpd.conf',
+        source => 'puppet:///modules/sync_ts_server/sync_ts_server_ssl-verify.conf',
         notify => Service[$apache::service],
     }
 
