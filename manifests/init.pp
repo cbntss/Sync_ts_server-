@@ -12,7 +12,7 @@ class sync_ts_server (
 
     # Install required packages
     package {$sync_ts_server::packages:
-        ensure => installed,
+        ensure => latest,
     }
 
     # Apache config file
