@@ -10,6 +10,8 @@ class sync_ts_server::database (
 ) {
     if ($manage_postgres == true){
         contain postgresql::server
+    }else{
+        notify {"Not managing postgres.": }
     }
 
     postgresql::server::db {$sync_ts_dbname:
