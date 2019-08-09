@@ -25,6 +25,11 @@ class sync_ts_server::database (
         # Use the postgres servers connect_settings
         $connect_settings = $postgresql::server::connect_settings
     }else{
+        # Make sure we are not connecting to localhost
+        if ($db_host == 'localhost') or ($db_host == '127.0.0.1'){
+            fail("If create_database == false then db_host cannot be ${db_host}")
+        }
+
         # Create a connect_settings hash to connect to a remote db.
         $connect_settings = {
             'PGUSER'     => $db_user,
