@@ -1,17 +1,20 @@
 # Manage the sync_ts_server database
 
 class sync_ts_server::database (
-    String $sync_ts_dbname='sync_ts',
-    String $user_password='sync_ts',
-    String $username='sync_ts',
-    String $schemaname = 'public',
     String $dbversion_table = 'dbversion',
+    Boolean $manage_postgres = true,
+    String $schemaname = 'public',
+    String $sync_ts_dbname = 'sync_ts',
+    String $username = 'sync_ts',
+    String $userpass = 'sync_ts',
 ) {
-    contain postgresql::server
+    if ($manage_postgres == true){
+        contain postgresql::server
+    }
 
     postgresql::server::db {$sync_ts_dbname:
         user     => $username,
-        password => postgresql_password($username, $user_password),
+        password => postgresql_password($username, $userpass),
         owner    => $username,
     }
 
