@@ -2,30 +2,44 @@
 
 class sync_ts_server::database (
     Boolean $create_database = true,
+    Stdlib::Host $db_host = 'localhost',
+    String $db_name = 'sync_ts',
+    String $db_pass = 'sync_ts',
+    String $db_user = 'sync_ts',
     String $dbversion_table = 'dbversion',
     Optional[String] $encoding = undef,
     Optional[String] $locale = undef,
     String $schemaname = 'public',
-    String $sync_ts_dbname = 'sync_ts',
-    String $username = 'sync_ts',
-    String $userpass = 'sync_ts',
 ) {
     if ($create_database == true){
         contain postgresql::server
 
-        postgresql::server::db {$sync_ts_dbname:
+        postgresql::server::db {$db_name:
             encoding    => $db_encoding,
             locale      => $db_locale,
-            owner       => $username,
-            password    => postgresql_password($username, $userpass),
-            user        => $username,
+            owner       => $db_user,
+            password    => postgresql_password($db_user, $db_pass),
+            user        => $db_user,
+        }
+
+        # Use the postgres servers connect_settings
+        $connect_settings = $postgresql::server::connect_settings
+    }else{
+        # Create a connect_settings hash to connect to a remote db.
+        $connect_settings = {
+            'PGUSER'     => $db_user,
+            'PGPASSWORD' => $db_pass,
+            'PGHOST'     => $db_host,
+            'PGPORT'     => '5432',
+            'PGDATABASE' => $db_name,
         }
     }
 
     postgresql_psql {'schema_sql':
-        db      => $sync_ts_dbname,
-        unless  => "select * from pg_tables where schemaname = '${schemaname}' and tablename = '${dbversion_table}'",
-        command => file("${module_name}/schema-1.0.sql"),
-        require => Postgresql::Server::Db[$sync_ts_dbname],
+        db                  => $db_name,
+        connect_settings    => $connect_settings,
+        unless              => "select * from pg_tables where schemaname = '${schemaname}' and tablename = '${dbversion_table}'",
+        command             => file("${module_name}/schema-1.0.sql"),
+        require             => Postgresql::Server::Db[$db_name],
     }
 }
