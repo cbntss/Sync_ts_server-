@@ -3,8 +3,8 @@
 class sync_ts_server::database () {
     assert_private()
 
-    $dbversion_table = 'dbversion',
-    String $schemaname = 'public',
+    $db_schemaname = 'public'
+    $db_version_table = 'db_version'
 
     if ($sync_ts_server::create_database == true){
         contain postgresql::server
@@ -37,7 +37,7 @@ class sync_ts_server::database () {
     postgresql_psql {'schema_sql':
         db                  => $sync_ts_server::db_name,
         connect_settings    => $connect_settings,
-        unless              => "select * from pg_tables where schemaname = '${schemaname}' and tablename = '${dbversion_table}'",
+        unless              => "select * from pg_tables where schemaname = '${db_schemaname}' and tablename = '${db_version_table}'",
         command             => file("${module_name}/schema-1.0.sql"),
     }
 }
