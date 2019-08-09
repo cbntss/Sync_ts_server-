@@ -18,6 +18,4 @@ class sync_ts_server (
     contain sync_ts_server::config
 
     contain sync_ts_server::apache
-
-
 }
