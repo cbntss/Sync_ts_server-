@@ -16,8 +16,8 @@ class sync_ts_server::database () {
             before      => Postgresql_psql['schema_sql'],
         }
 
-        # Use the postgres servers connect_settings
-        $connect_settings = $postgresql::server::connect_settings
+        # Use the postgres servers connect_settings when we are dealing with localhost.
+        $connect_settings = $postgresql::server::default_connect_settings
     }else{
         # Make sure we are not connecting to localhost
         if ($sync_ts_server::db_host == 'localhost') or ($sync_ts_server::db_host == '127.0.0.1'){
