@@ -4,7 +4,7 @@ class sync_ts_server::database () {
     assert_private()
 
     $db_schemaname = 'public'
-    $db_version_table = 'db_version'
+    $db_version_table = 'dbversion'
 
     if ($sync_ts_server::create_database == true){
         contain postgresql::server
