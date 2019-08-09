@@ -20,6 +20,7 @@ class sync_ts_server::database (
             owner       => $db_user,
             password    => postgresql_password($db_user, $db_pass),
             user        => $db_user,
+            before      => Postgresql_psql['schema_sql'],
         }
 
         # Use the postgres servers connect_settings
@@ -45,6 +46,5 @@ class sync_ts_server::database (
         connect_settings    => $connect_settings,
         unless              => "select * from pg_tables where schemaname = '${schemaname}' and tablename = '${dbversion_table}'",
         command             => file("${module_name}/schema-1.0.sql"),
-        require             => Postgresql::Server::Db[$db_name],
     }
 }
