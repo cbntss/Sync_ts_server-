@@ -16,7 +16,7 @@ class sync_ts_server::database (
         notify {"Not managing postgres.": }
     }
 
-    if (isset('postgresql::server::encoding')) and ($encoding == undef){
+    if (defined('$postgresql::server::encoding')) and ($encoding == undef){
         # If we don't set encoding but postgresql does, use theirs.
         $db_encoding = $postgresql::server::encoding
     }else{
@@ -24,7 +24,7 @@ class sync_ts_server::database (
         $db_encoding = $encoding
     }
 
-    if (isset('postgresql::server::locale')) and ($locale == undef){
+    if (defined('$postgresql::server::locale')) and ($locale == undef){
         # If we don't set locale but postgresql does, use theirs.
         $db_locale = $postgresql::server::locale
     }else{
