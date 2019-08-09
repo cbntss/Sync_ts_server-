@@ -2,6 +2,8 @@
 
 class sync_ts_server::database (
     String $dbversion_table = 'dbversion',
+    Optional[String] $encoding = undef,
+    Optional[String] $locale = undef,
     Boolean $manage_postgres = true,
     String $schemaname = 'public',
     String $sync_ts_dbname = 'sync_ts',
@@ -15,9 +17,11 @@ class sync_ts_server::database (
     }
 
     postgresql::server::db {$sync_ts_dbname:
-        user     => $username,
-        password => postgresql_password($username, $userpass),
-        owner    => $username,
+        encoding    => $encoding,
+        locale      => $locale,
+        user        => $username,
+        password    => postgresql_password($username, $userpass),
+        owner       => $username,
     }
 
     postgresql_psql {'schema_sql':
