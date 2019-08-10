@@ -1,7 +1,7 @@
 # Puppet module for managing sync_ts_server packege
 class sync_ts_server (
     Array[String] $packages,
-    Stdlib::HttpUrl $terminal_url,
+    Stdlib::HTTPSUrl $terminal_url,
     Boolean $create_database = true,
     Stdlib::Host $db_host='localhost',
     String $db_name = 'sync_ts',
